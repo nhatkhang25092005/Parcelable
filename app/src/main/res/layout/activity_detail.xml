@@ -28,4 +28,35 @@
         app:layout_constraintStart_toStartOf="@+id/img_detail"
         app:layout_constraintTop_toBottomOf="@+id/img_detail" />
 
+    <Button
+        android:id="@+id/btn_call"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="100dp"
+        android:text="Call"
+        app:layout_constraintEnd_toEndOf="@+id/img_detail"
+        app:layout_constraintStart_toStartOf="@+id/img_detail"
+        app:layout_constraintTop_toBottomOf="@+id/txt_detail" />
+
+    <Button
+        android:id="@+id/btn_map"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="Xem bản đồ"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="@+id/btn_call"
+        app:layout_constraintStart_toStartOf="@+id/btn_call"
+        app:layout_constraintTop_toBottomOf="@+id/btn_call" />
+
+    <Button
+        android:id="@+id/btn_web"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:text="Xem trang web"
+        app:layout_constraintEnd_toEndOf="@+id/btn_map"
+        app:layout_constraintStart_toStartOf="@+id/btn_map"
+        app:layout_constraintTop_toBottomOf="@+id/btn_map" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
