@@ -1,5 +1,6 @@
 package com.example.parcelable;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,13 +22,20 @@ public class DetailActivity extends AppCompatActivity {
         img_detail = findViewById(R.id.img_detail);
         txt_detail = findViewById(R.id.txt_detail);
 
+
+
         Food food = getIntent().getParcelableExtra("foodItem");
+
         if (food != null) {
             img_detail.setImageResource(food.getImage());
             String detailText = "Ten mon an:"+food.getName()+
                     "\nMo ta:"+food.getDesciption()+
                     "\nGia:"+food.getPrice()+"VND";
             txt_detail.setText(detailText);
+            SharedPreferences prefs  = getSharedPreferences("LastViewedFood", MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString("lastViewedFood",food.getName());
+            editor.apply();
         }
 
     }

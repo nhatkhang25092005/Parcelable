@@ -1,5 +1,7 @@
 package com.example.parcelable;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,7 +34,16 @@ public class MainActivity extends AppCompatActivity {
         foodAdapter = new FoodAdapter(foodList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(foodAdapter);
-        // Swipe to delete
+
+        SharedPreferences prefs = getSharedPreferences("LastViewedFood", MODE_PRIVATE);
+        String lastViewedFood = prefs.getString("lastViewedFood", "");
+        if(!lastViewedFood.equals("")){
+            Toast.makeText(this, "Last Viewed Food: " +lastViewedFood, Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(this, "No Last Viewed Food", Toast.LENGTH_SHORT).show();
+        }
+
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new
         ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
             @Override
